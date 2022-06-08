@@ -1,4 +1,4 @@
-import { AppBar, Divider, Drawer, List, ListItem, ListItemButton,
+import { Divider, Drawer, List, ListItem, ListItemButton,
   ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material'
   import { useTheme } from '@mui/material/styles';
 import { Home, CurrencyExchange, PeopleAlt, Output } from '@mui/icons-material';
