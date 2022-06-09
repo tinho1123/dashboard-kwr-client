@@ -13,7 +13,7 @@ const date = new Date().toLocaleDateString('pt-br', {
   second: '2-digit',
 })
 
-export const Header: React.FC<Props> = ({ drawerWidth }) => {
+const Header: React.FC<Props> = ({ drawerWidth }) => {
   const [dateCount, setDateCount] = useState(date);
 
   setInterval(() => {
@@ -42,3 +42,5 @@ return (
   </Box>
   )
 }
+
+export default Header;

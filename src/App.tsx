@@ -1,8 +1,8 @@
-import React from 'react';
 import './App.css';
-import { Sidebar } from './components/Sidebar';
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import { Header } from './components/Header';
+import Dashboard from './pages/Dashboard';
+import { Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
 
 function App() {
   const drawerWidth = 240
@@ -15,12 +15,12 @@ function App() {
   })
 
   return (
-    <div className="App">
       <ThemeProvider theme={styles}>
-      <Sidebar drawerWidth={drawerWidth}/>
-      <Header drawerWidth={drawerWidth} />
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+        </Routes>
       </ThemeProvider>
-    </div>
   );
 }
 

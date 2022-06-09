@@ -7,10 +7,7 @@ interface Props {
   drawerWidth: number
 }
 
-export const Sidebar: React.FC<Props> = ({ drawerWidth }) => {
-
-  const theme = useTheme()
-  console.log(theme);
+const Sidebar: React.FC<Props> = ({ drawerWidth }) => {
   
     return (
     <aside>
@@ -55,7 +52,7 @@ export const Sidebar: React.FC<Props> = ({ drawerWidth }) => {
         </List>
         <Divider />
           <List>
-          <ListItem>
+          <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>{<Output />}</ListItemIcon>
               <ListItemText>Sair</ListItemText>
@@ -67,3 +64,5 @@ export const Sidebar: React.FC<Props> = ({ drawerWidth }) => {
     </aside>
   )
 }
+
+export default Sidebar;
