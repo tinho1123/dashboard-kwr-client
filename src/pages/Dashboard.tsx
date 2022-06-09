@@ -4,12 +4,13 @@ import Sidebar from '../components/Sidebar'
 
 const Dashboard = () => {
   const theme = useTheme()
-  console.log(theme);
+  const drawerWidthSpacing = 30
+  const mobile = window.screen.width < 600
   
   return (
     <div>
-      <Sidebar drawerWidth={240}/>
-      <Header drawerWidth={240} />
+      <Sidebar drawerWidth={theme.spacing(drawerWidthSpacing)} mobile={mobile}/>
+      <Header drawerWidth={theme.spacing(drawerWidthSpacing)} mobile={mobile} />
     </div>
   )
 }

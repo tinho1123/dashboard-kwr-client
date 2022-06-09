@@ -1,13 +1,15 @@
 import { Divider, Drawer, List, ListItem, ListItemButton,
   ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material'
-  import { useTheme } from '@mui/material/styles';
 import { Home, CurrencyExchange, PeopleAlt, Output } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
-  drawerWidth: number
+  drawerWidth: string;
+  mobile: boolean
 }
 
-const Sidebar: React.FC<Props> = ({ drawerWidth }) => {
+const Sidebar: React.FC<Props> = ({ drawerWidth, mobile }) => {
+  const navigate = useNavigate();
   
     return (
     <aside>
@@ -21,7 +23,7 @@ const Sidebar: React.FC<Props> = ({ drawerWidth }) => {
             boxSizing: 'border-box',
           },
         }}
-        variant="permanent"
+        variant={ mobile ? 'temporary' : 'permanent' }
         anchor="left"
         >
           <Toolbar 
@@ -53,7 +55,9 @@ const Sidebar: React.FC<Props> = ({ drawerWidth }) => {
         <Divider />
           <List>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => {
+              navigate('/')
+            }}>
               <ListItemIcon>{<Output />}</ListItemIcon>
               <ListItemText>Sair</ListItemText>
             </ListItemButton>

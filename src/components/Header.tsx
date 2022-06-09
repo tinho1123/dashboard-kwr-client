@@ -1,8 +1,10 @@
 import { AppBar, Box, Toolbar, Typography } from '@mui/material'
 import { useState } from 'react';
+import { Dehaze } from '@mui/icons-material';
 
 interface Props {
-  drawerWidth: number;
+  drawerWidth: string;
+  mobile: boolean;
 }
 const date = new Date().toLocaleDateString('pt-br', {
   day: '2-digit',
@@ -13,8 +15,9 @@ const date = new Date().toLocaleDateString('pt-br', {
   second: '2-digit',
 })
 
-const Header: React.FC<Props> = ({ drawerWidth }) => {
+const Header: React.FC<Props> = ({ drawerWidth, mobile }) => {
   const [dateCount, setDateCount] = useState(date);
+  const [activeSidebar, setActiveSidebar] = useState(false);
 
   setInterval(() => {
     setDateCount(new Date().toLocaleDateString('pt-br', {
@@ -31,9 +34,19 @@ return (
   <Box>
     <AppBar
     position='fixed'
-    sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+    sx={{ width: `calc(100% - ${mobile ? 0: drawerWidth})`, ml: `${mobile ? 0 : drawerWidth}` }}
     >
     <Toolbar>
+      {mobile && 
+      
+        <Dehaze 
+          style={{ marginRight: '20px'}}
+          onClick={ () => {
+            
+          }} 
+        />
+        
+      }
       <Typography variant='h6' noWrap component='div'>
         {dateCount}
       </Typography>
