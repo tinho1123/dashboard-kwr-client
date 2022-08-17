@@ -1,26 +1,17 @@
-import React from 'react';
-import './App.css';
-import { Sidebar } from './components/Sidebar';
-import { createTheme, ThemeProvider } from '@mui/material/styles'
-import { Header } from './components/Header';
+import "./App.css";
+import Dashboard from "./pages/Dashboard";
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import StyleThemeProvider from "./themes/StyleThemeProvider";
 
 function App() {
-  const drawerWidth = 240
-  const styles = createTheme({
-    palette: {
-      primary: {
-        main: '#ff8c00',
-      }
-    } 
-  })
-
   return (
-    <div className="App">
-      <ThemeProvider theme={styles}>
-      <Sidebar drawerWidth={drawerWidth}/>
-      <Header drawerWidth={drawerWidth} />
-      </ThemeProvider>
-    </div>
+    <StyleThemeProvider>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </StyleThemeProvider>
   );
 }
 

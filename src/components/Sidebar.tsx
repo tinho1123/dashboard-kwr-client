@@ -1,17 +1,19 @@
 import { Divider, Drawer, List, ListItem, ListItemButton,
   ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material'
-  import { useTheme } from '@mui/material/styles';
-import { Home, CurrencyExchange, PeopleAlt, Output } from '@mui/icons-material';
+import { Home, CurrencyExchange, PeopleAlt, Output, SportsBar } from '@mui/icons-material';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom'
+import { ButtonContext } from '../context/ButtonContext'
 
 interface Props {
-  drawerWidth: number
+  drawerWidth: string;
+  mobile: boolean
 }
 
-export const Sidebar: React.FC<Props> = ({ drawerWidth }) => {
+const Sidebar: React.FC<Props> = ({ drawerWidth, mobile }) => {
+  const navigate = useNavigate();
+  const { openDrawer, toogleDrawer }: any = useContext(ButtonContext)
 
-  const theme = useTheme()
-  console.log(theme);
-  
     return (
     <aside>
         <Drawer
@@ -24,39 +26,57 @@ export const Sidebar: React.FC<Props> = ({ drawerWidth }) => {
             boxSizing: 'border-box',
           },
         }}
-        variant="permanent"
+        variant={ mobile ? 'temporary' : 'permanent' }
         anchor="left"
+        open={openDrawer}
+        onClose={toogleDrawer}
         >
           <Toolbar 
           sx={{ display: 'flex', justifyContent: 'center' }}
           >
             <Typography variant='h6' component="div">KWR Gestão</Typography>
           </Toolbar>
+
         <Divider />
+
         <List sx={{ flex: 1 }}>
+
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>{<Home/>}</ListItemIcon>
               <ListItemText>Home</ListItemText>
             </ListItemButton>
           </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>{<SportsBar/>}</ListItemIcon>
+              <ListItemText>Produtos</ListItemText>
+            </ListItemButton>
+          </ListItem>
+          
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>{<CurrencyExchange/>}</ListItemIcon>
               <ListItemText>Vendas</ListItemText>
             </ListItemButton>
           </ListItem>
+
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>{<PeopleAlt/>}</ListItemIcon>
               <ListItemText>Fiados</ListItemText>
             </ListItemButton>
           </ListItem>
+
         </List>
+
         <Divider />
           <List>
-          <ListItem>
-            <ListItemButton>
+          <ListItem disablePadding>
+            <ListItemButton onClick={() => {
+              navigate('/')
+            }}>
               <ListItemIcon>{<Output />}</ListItemIcon>
               <ListItemText>Sair</ListItemText>
             </ListItemButton>
@@ -67,3 +87,5 @@ export const Sidebar: React.FC<Props> = ({ drawerWidth }) => {
     </aside>
   )
 }
+
+export default Sidebar;
