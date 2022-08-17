@@ -1,7 +1,7 @@
 import { AppBar, Box, Toolbar, Typography } from '@mui/material'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Dehaze } from '@mui/icons-material';
-
+import { ButtonContext } from '../context/ButtonContext'
 interface Props {
   drawerWidth: string;
   mobile: boolean;
@@ -17,8 +17,9 @@ const date = new Date().toLocaleDateString('pt-br', {
 
 const Header: React.FC<Props> = ({ drawerWidth, mobile }) => {
   const [dateCount, setDateCount] = useState(date);
-  const [activeSidebar, setActiveSidebar] = useState(false);
-
+  const { toogleDrawer }: any = useContext(ButtonContext)
+  
+  
   setInterval(() => {
     setDateCount(new Date().toLocaleDateString('pt-br', {
       day: '2-digit',
@@ -31,7 +32,7 @@ const Header: React.FC<Props> = ({ drawerWidth, mobile }) => {
   }, 1000)
   
 return (
-  <Box>
+  <Box >
     <AppBar
     position='fixed'
     sx={{ width: `calc(100% - ${mobile ? 0: drawerWidth})`, ml: `${mobile ? 0 : drawerWidth}` }}
@@ -41,9 +42,7 @@ return (
       
         <Dehaze 
           style={{ marginRight: '20px'}}
-          onClick={ () => {
-            
-          }} 
+          onClick={toogleDrawer} 
         />
         
       }
