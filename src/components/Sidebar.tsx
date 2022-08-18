@@ -72,9 +72,11 @@ const Sidebar: React.FC<Props> = ({ drawerWidth, mobile }) => {
         </List>
 
         <Divider />
+        ## botao de sair 
           <List>
           <ListItem disablePadding>
             <ListItemButton onClick={() => {
+              localStorage.removeItem('admin')
               navigate('/')
             }}>
               <ListItemIcon>{<Output />}</ListItemIcon>

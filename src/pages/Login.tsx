@@ -7,15 +7,16 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { logo } from "../assets";
+import { logo, logoSVG } from "../assets";
 
 function Login() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
+  const [error, setError] = useState('')
   const [showPassword, setShowPassword] = useState(false);
 
   const changeShowPassword = () => {
@@ -31,19 +32,28 @@ function Login() {
         localStorage.setItem('admin', JSON.stringify(data.token))
         navigate('/dashboard')
       }
-    }).catch((err) => {
-      console.log(err)
+    }).catch(({ response: { data } }) => {
+      setError(data.message)
+      setTimeout(() => {
+        setError('')
+      }, 5000)
     })
   }
 
   const mobile = window.screen.width < 600;
+
+  useEffect(() => {
+    if (localStorage.getItem('admin')) {
+      navigate('/dashboard')
+    }
+  }, [navigate])
 
   return (
     <Grid container style={{ minHeight: "100vh" }}>
       {mobile ? '' : (
         <Grid item xs={12} sm={6}>
           <img
-            src={logo}
+            src={logoSVG}
             alt="Logo KWR Gestão"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
@@ -73,6 +83,9 @@ function Login() {
               Seja Bem Vindo
             </Typography>
           </Grid>
+          {error ? (
+            <Typography sx={{ color: 'red', textAlign: 'center' }}>{error}</Typography>
+          ): '' }
           <TextField
             onChange={(e) => setEmail(e.target.value)}
             value={email}
