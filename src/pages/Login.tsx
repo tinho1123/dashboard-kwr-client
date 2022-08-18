@@ -9,7 +9,7 @@ import {
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { logo, logoSVG } from "../assets";
+import { Logo } from "../components";
 
 function Login() {
   const navigate = useNavigate();
@@ -40,8 +40,6 @@ function Login() {
     })
   }
 
-  const mobile = window.screen.width < 600;
-
   useEffect(() => {
     if (localStorage.getItem('admin')) {
       navigate('/dashboard')
@@ -50,15 +48,7 @@ function Login() {
 
   return (
     <Grid container style={{ minHeight: "100vh" }}>
-      {mobile ? '' : (
-        <Grid item xs={12} sm={6}>
-          <img
-            src={logoSVG}
-            alt="Logo KWR Gestão"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        </Grid>
-      )}
+     <Logo />
       <Grid
         container
         item
