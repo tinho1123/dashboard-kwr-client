@@ -4,6 +4,7 @@ import { Main } from "../components";
 import Header from "../components/Header/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
 import ButtonProvider from "../context/ButtonContext";
+import DataContextProvider from "../context/DataContext";
 
 
 const Dashboard = () => {
@@ -13,7 +14,7 @@ const Dashboard = () => {
   const mobile = window.screen.width < 600;
 
   return (
-    <div>
+    <DataContextProvider>
       <ButtonProvider>
         <Sidebar
           drawerWidth={theme.spacing(drawerWidthSpacing)}
@@ -30,7 +31,7 @@ const Dashboard = () => {
           mobile={mobile}
         />
       </ButtonProvider>
-    </div>
+    </DataContextProvider>
   );
 };
 
