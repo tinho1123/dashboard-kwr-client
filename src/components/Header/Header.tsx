@@ -1,7 +1,7 @@
 import { AppBar, Box, Toolbar, Typography } from '@mui/material'
 import { useContext, useState } from 'react';
 import { Dehaze } from '@mui/icons-material';
-import { ButtonContext } from '../context/ButtonContext'
+import { ButtonContext } from '../../context/ButtonContext'
 interface Props {
   drawerWidth: string;
   mobile: boolean;

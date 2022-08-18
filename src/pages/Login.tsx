@@ -1,54 +1,20 @@
-import { AccountCircle, LockRounded, Key, KeyOff } from "@mui/icons-material";
-import {
-  Button,
-  Grid,
-  InputAdornment,
-  TextField,
-  Typography,
-} from "@mui/material";
-import axios from "axios";
-import { useState } from "react";
+import { Grid } from "@mui/material";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { logo } from "../assets";
+import { FormLogin, Logo } from "../components";
 
 function Login() {
   const navigate = useNavigate();
-
-  const [email, setEmail] = useState('')
-  const [senha, setSenha] = useState('')
-  const [showPassword, setShowPassword] = useState(false);
-
-  const changeShowPassword = () => {
-    setShowPassword(!showPassword);
-  }
-
-  const reqLogin = async () => {
-    await axios.post(`${process.env.REACT_APP_API_KEY}admin/login`, {
-      email,
-      senha
-    }).then(({ data }) => {
-      if (data.success) {
-        localStorage.setItem('admin', JSON.stringify(data.token))
-        navigate('/dashboard')
-      }
-    }).catch((err) => {
-      console.log(err)
-    })
-  }
-
-  const mobile = window.screen.width < 600;
+  
+  useEffect(() => {
+    if (localStorage.getItem('admin')) {
+      navigate('/dashboard')
+    }
+  }, [navigate])
 
   return (
     <Grid container style={{ minHeight: "100vh" }}>
-      {mobile ? '' : (
-        <Grid item xs={12} sm={6}>
-          <img
-            src={logo}
-            alt="Logo KWR Gestão"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        </Grid>
-      )}
+     <Logo />
       <Grid
         container
         item
@@ -60,67 +26,7 @@ function Login() {
         style={{ padding: 10 }}
       >
         <div />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            maxWidth: 400,
-            minWidth: 300,
-          }}
-        >
-          <Grid container justifyContent="center">
-            <Typography marginBottom="50px" variant="h4" component="div">
-              Seja Bem Vindo
-            </Typography>
-          </Grid>
-          <TextField
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            type="email"
-            label="Email"
-            margin="normal"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <AccountCircle />
-                </InputAdornment>
-              ),
-            }}
-          />
-
-          <TextField
-            type={showPassword ? "text" : "password"}
-            onChange={(e) => setSenha(e.target.value)}
-            value={senha}
-            label="Password"
-            margin="normal"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <LockRounded />
-                </InputAdornment>
-              ),
-              endAdornment: (
-                <InputAdornment position="end" style={{ cursor: "pointer" }}>
-                  {showPassword ? (
-                    <KeyOff onClick={changeShowPassword} />
-                  ) : (
-                    <Key onClick={changeShowPassword} />
-                  )}
-                </InputAdornment>
-              ),
-            }}
-          />
-
-          <Button
-            color="primary"
-            variant="contained"
-            style={{ marginTop: 10, height: 40 }}
-            onClick={reqLogin}
-          >
-            Logar
-          </Button>
-        </div>
+        <FormLogin />
         <div />
       </Grid>
     </Grid>

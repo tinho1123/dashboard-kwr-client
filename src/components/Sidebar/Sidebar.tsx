@@ -3,7 +3,7 @@ import { Divider, Drawer, List, ListItem, ListItemButton,
 import { Home, CurrencyExchange, PeopleAlt, Output, SportsBar } from '@mui/icons-material';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { ButtonContext } from '../context/ButtonContext'
+import { ButtonContext } from '../../context/ButtonContext'
 
 interface Props {
   drawerWidth: string;
@@ -72,9 +72,11 @@ const Sidebar: React.FC<Props> = ({ drawerWidth, mobile }) => {
         </List>
 
         <Divider />
+        ## botao de sair 
           <List>
           <ListItem disablePadding>
             <ListItemButton onClick={() => {
+              localStorage.removeItem('admin')
               navigate('/')
             }}>
               <ListItemIcon>{<Output />}</ListItemIcon>
