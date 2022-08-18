@@ -1,13 +1,15 @@
 import Header from "./Header/Header";
 import Logo from "./Logo/Logo";
-import Main from "./Main/Main";
+import Home from "./Home/Home";
 import Sidebar from "./Sidebar/Sidebar";
 import FormLogin from "./FormLogin/FormLogin";
+import Main from "./Main/Main";
 
 export {
   Header,
   Logo,
-  Main,
+  Home,
   Sidebar,
-  FormLogin
+  FormLogin,
+  Main,
 }

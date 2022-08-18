@@ -1,11 +1,19 @@
-import { Container } from "@mui/material";
+import { Box, Typography } from '@mui/material';
+import React from 'react'
+import Home from '../Home/Home';
 
-const Main = () => {
+interface Props {
+  component: string;
+  drawerWidth: string;
+  mobile: boolean;
+}
+
+const Main: React.FC<Props> = ({ component, drawerWidth, mobile }) => {
   return (
-    <Container style={{ width: 'calc(100% - )', background: 'red', }}>
-
-    </Container>
+    <Box sx={{ width: `100% - ${mobile ? 0 : drawerWidth}`, mt: '4rem', ml: `${mobile ? 0 : drawerWidth}` }}>
+      <Home />
+    </Box>
   )
 }
 
-export default Main;
+export default Main

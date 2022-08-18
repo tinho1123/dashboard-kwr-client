@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createContext } from "vm";
 
 export const DataContext = createContext({})
@@ -7,9 +8,11 @@ interface Props {
 }
 
 const DataContextProvider: React.FC<Props> = ({ children }) => {
+  const [data, setData] = useState({})
 
   const value = {
-
+    data,
+    setData
   }
 
   return (
