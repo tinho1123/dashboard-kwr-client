@@ -42,28 +42,28 @@ const Sidebar: React.FC<Props> = ({ drawerWidth, mobile }) => {
         <List sx={{ flex: 1 }}>
 
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/dashboard')}>
               <ListItemIcon>{<Home/>}</ListItemIcon>
               <ListItemText>Home</ListItemText>
             </ListItemButton>
           </ListItem>
 
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/dashboard/produtos')}>
               <ListItemIcon>{<SportsBar/>}</ListItemIcon>
               <ListItemText>Produtos</ListItemText>
             </ListItemButton>
           </ListItem>
           
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/dashboard/vendas')}>
               <ListItemIcon>{<CurrencyExchange/>}</ListItemIcon>
               <ListItemText>Vendas</ListItemText>
             </ListItemButton>
           </ListItem>
 
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/dashboard/fiados')}>
               <ListItemIcon>{<PeopleAlt/>}</ListItemIcon>
               <ListItemText>Fiados</ListItemText>
             </ListItemButton>
