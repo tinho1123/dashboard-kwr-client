@@ -3,7 +3,7 @@ import Dashboard from "./pages/Dashboard";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import StyleThemeProvider from "./themes/StyleThemeProvider";
-import { Home, Products } from "./components";
+import { Debtor, Home, Products, Sales } from "./components";
 
 function App() {
   return (
@@ -26,6 +26,28 @@ function App() {
             <Dashboard 
               component={
                 <Products />
+              }
+            />
+          }
+        />
+
+        <Route
+          path="/dashboard/vendas"
+          element={
+            <Dashboard 
+              component={
+                <Sales />
+              }
+            />
+          }
+        />
+
+        <Route
+          path="/dashboard/fiados"
+          element={
+            <Dashboard 
+              component={
+                <Debtor />
               }
             />
           }

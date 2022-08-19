@@ -8,7 +8,7 @@ const Products = () => {
     const local = localStorage.getItem('admin')
     if (local) {
     const token = JSON.parse(local)
-    await api.get('vendas/getall', {
+    await api.get('produtos/getall', {
       headers: {
         token
       }
@@ -30,7 +30,7 @@ const Products = () => {
 
   return (
     <Box >
-      
+      adsa
     </Box>
   )
 }

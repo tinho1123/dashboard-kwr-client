@@ -4,6 +4,8 @@ import Home from "./Home/Home";
 import Sidebar from "./Sidebar/Sidebar";
 import FormLogin from "./FormLogin/FormLogin";
 import Products from "./Products/Products";
+import Sales from './Sales/Sales';
+import Debtor from './Debtor/Debtor'
 
 export {
   Header,
@@ -12,4 +14,6 @@ export {
   Sidebar,
   FormLogin,
   Products,
+  Sales,
+  Debtor
 }
