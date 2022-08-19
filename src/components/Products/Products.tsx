@@ -2,12 +2,7 @@ import { Box } from '@mui/material'
 import React, { useEffect } from 'react'
 import { api } from '../../api';
 
-interface Props {
-  drawerWidth: string;
-  mobile: boolean;
-}
-
-const Products: React.FC<Props> = ({ drawerWidth, mobile }) => {
+const Products = () => {
 
   async function getData() {
     const local = localStorage.getItem('admin')
@@ -34,8 +29,8 @@ const Products: React.FC<Props> = ({ drawerWidth, mobile }) => {
   }, [])
 
   return (
-    <Box sx={{ width: `100% - ${mobile ? 0 : drawerWidth}`, mt: '4rem', ml: `${mobile ? 0 : drawerWidth}` }}>
-      Produto
+    <Box >
+      
     </Box>
   )
 }

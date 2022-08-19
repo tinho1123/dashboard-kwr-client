@@ -4,13 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import StyleThemeProvider from "./themes/StyleThemeProvider";
 import { Home, Products } from "./components";
-import { useTheme } from "@mui/system";
 
 function App() {
-  const theme = useTheme();
-  const drawerWidthSpacing = 30;
-  const mobile = window.screen.width < 600;
-
   return (
     <StyleThemeProvider>
       <Routes>
@@ -20,10 +15,7 @@ function App() {
           element={
             <Dashboard 
               component={ 
-                <Home 
-                  drawerWidth={theme.spacing(drawerWidthSpacing)}
-                  mobile={mobile}
-                />
+                <Home />
               } 
             />
           }
@@ -33,10 +25,7 @@ function App() {
           element={
             <Dashboard 
               component={
-                <Products
-                  drawerWidth={theme.spacing(drawerWidthSpacing)}
-                  mobile={mobile}
-                />
+                <Products />
               }
             />
           }

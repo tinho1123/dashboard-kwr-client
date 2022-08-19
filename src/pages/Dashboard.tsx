@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { useTheme } from "@mui/system";
 import Header from "../components/Header/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
@@ -24,7 +25,15 @@ const Dashboard: React.FC<Props> = ({ component }) => {
             drawerWidth={theme.spacing(drawerWidthSpacing)}
             mobile={mobile}
           />
-          {component}
+          {
+          <Box
+            sx={
+              { width: `100% - ${mobile ? 0 : theme.spacing(drawerWidthSpacing)}`, mt: '4rem', ml: `${mobile ? 0 : theme.spacing(drawerWidthSpacing)}}` }
+            }
+          >
+            {component}
+          </Box>
+          }
         </ButtonProvider>
       </DataContextProvider>
 
