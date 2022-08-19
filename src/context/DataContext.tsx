@@ -13,18 +13,23 @@ const DataContextProvider: React.FC<Props> = ({ children }) => {
   const [data, setData] = useState({})
 
   async function getData() {
-    const token = JSON.parse(localStorage.getItem('admin'))
-    console.log(token);
+    const local = localStorage.getItem('admin')
+    if (local) {
+    const token = JSON.parse(local)
+    await api.get('vendas/getall', {
+      headers: {
+        token
+      }
+    })
+      .then(({data}) => {
+        console.log(data)
+      })
+      .catch(({response: { data }}) => {
+        console.log(data);
+      })
+    }
     
-    // await api.get('vendas/getall', {
-    //   headers: 
-    // })
-    //   .then(({data}) => {
-    //     console.log(data)
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   })
+   
   }
 
   useEffect(() => {
