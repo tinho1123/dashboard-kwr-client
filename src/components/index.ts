@@ -3,7 +3,7 @@ import Logo from "./Logo/Logo";
 import Home from "./Home/Home";
 import Sidebar from "./Sidebar/Sidebar";
 import FormLogin from "./FormLogin/FormLogin";
-import Main from "./Main/Main";
+import Products from "./Products/Products";
 
 export {
   Header,
@@ -11,5 +11,5 @@ export {
   Home,
   Sidebar,
   FormLogin,
-  Main,
+  Products,
 }

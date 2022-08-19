@@ -8,7 +8,6 @@ import { ButtonContext } from '../../context/ButtonContext'
 interface Props {
   drawerWidth: string;
   mobile: boolean,
-  setComponent: Function;
 }
 
 const Sidebar: React.FC<Props> = ({ drawerWidth, mobile }) => {
