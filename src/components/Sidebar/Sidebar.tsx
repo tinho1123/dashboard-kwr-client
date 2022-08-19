@@ -7,7 +7,7 @@ import { ButtonContext } from '../../context/ButtonContext'
 
 interface Props {
   drawerWidth: string;
-  mobile: boolean
+  mobile: boolean,
 }
 
 const Sidebar: React.FC<Props> = ({ drawerWidth, mobile }) => {
@@ -42,28 +42,28 @@ const Sidebar: React.FC<Props> = ({ drawerWidth, mobile }) => {
         <List sx={{ flex: 1 }}>
 
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/dashboard')}>
               <ListItemIcon>{<Home/>}</ListItemIcon>
               <ListItemText>Home</ListItemText>
             </ListItemButton>
           </ListItem>
 
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/dashboard/produtos')}>
               <ListItemIcon>{<SportsBar/>}</ListItemIcon>
               <ListItemText>Produtos</ListItemText>
             </ListItemButton>
           </ListItem>
           
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/dashboard/vendas')}>
               <ListItemIcon>{<CurrencyExchange/>}</ListItemIcon>
               <ListItemText>Vendas</ListItemText>
             </ListItemButton>
           </ListItem>
 
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/dashboard/fiados')}>
               <ListItemIcon>{<PeopleAlt/>}</ListItemIcon>
               <ListItemText>Fiados</ListItemText>
             </ListItemButton>
@@ -72,7 +72,6 @@ const Sidebar: React.FC<Props> = ({ drawerWidth, mobile }) => {
         </List>
 
         <Divider />
-        ## botao de sair 
           <List>
           <ListItem disablePadding>
             <ListItemButton onClick={() => {

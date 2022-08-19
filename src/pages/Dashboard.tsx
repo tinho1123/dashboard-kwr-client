@@ -1,28 +1,37 @@
+import { Box } from "@mui/material";
 import { useTheme } from "@mui/system";
 import Header from "../components/Header/Header";
-import Main from "../components/Main/Main";
 import Sidebar from "../components/Sidebar/Sidebar";
 import ButtonProvider from "../context/ButtonContext";
+interface Props {
+  component: React.ReactNode
+}
 
-const Dashboard = () => {
+const Dashboard: React.FC<Props> = ({ component }) => {
   const theme = useTheme();
   const drawerWidthSpacing = 30;
   const mobile = window.screen.width < 600;
 
   return (
-    <div>
-      <ButtonProvider>
-        <Sidebar
-          drawerWidth={theme.spacing(drawerWidthSpacing)}
-          mobile={mobile}
-        />
-        <Header
-          drawerWidth={theme.spacing(drawerWidthSpacing)}
-          mobile={mobile}
-        />
-        <Main />
-      </ButtonProvider>
-    </div>
+        <ButtonProvider>
+          <Sidebar
+            drawerWidth={theme.spacing(drawerWidthSpacing)}
+            mobile={mobile}
+          />
+          <Header
+            drawerWidth={theme.spacing(drawerWidthSpacing)}
+            mobile={mobile}
+          />
+          {
+          <Box
+            sx={
+              { width: `100% - ${mobile ? 0 : theme.spacing(drawerWidthSpacing)}`, mt: '4rem', ml: `${mobile ? 0 : theme.spacing(drawerWidthSpacing)}}` }
+            }
+          >
+            {component}
+          </Box>
+          }
+        </ButtonProvider>
   );
 };
 

@@ -1,13 +1,19 @@
 import Header from "./Header/Header";
 import Logo from "./Logo/Logo";
-import Main from "./Main/Main";
+import Home from "./Home/Home";
 import Sidebar from "./Sidebar/Sidebar";
 import FormLogin from "./FormLogin/FormLogin";
+import Products from "./Products/Products";
+import Sales from './Sales/Sales';
+import Debtor from './Debtor/Debtor'
 
 export {
   Header,
   Logo,
-  Main,
+  Home,
   Sidebar,
-  FormLogin
+  FormLogin,
+  Products,
+  Sales,
+  Debtor
 }
