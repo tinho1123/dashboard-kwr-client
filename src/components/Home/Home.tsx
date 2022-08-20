@@ -1,8 +1,17 @@
+import { Box } from "@mui/material";
 import { useState } from "react";
 import { LineChart } from "../";
 
 
 const Home = () => {
+  const optionsData = {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Resumo de custos e vendas'
+      },
+    },
+}
 
   const [userAgain, setUserAgain] = useState({
     labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
@@ -10,15 +19,18 @@ const Home = () => {
     {
       label: 'Vendas',
       data: [20000, 30000, 40000, 50000, 30000, 50000, 20000, 10000],
-      backgroundColor: ['red', 'blue', 'green'] 
+      backgroundColor: ['blue'],
+      borderColor: ['blue'],
     }
   ] 
   })
 
+
+
   return (
-    <div>
-      <LineChart chartData={userAgain} />
-    </div>
+    <Box>
+        <LineChart chartData={userAgain} optionsData={optionsData} />
+    </Box>
   )
 }
 
