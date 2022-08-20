@@ -6,6 +6,7 @@ import FormLogin from "./FormLogin/FormLogin";
 import Products from "./Products/Products";
 import Sales from './Sales/Sales';
 import Debtor from './Debtor/Debtor'
+import LineChart from "./LineChart/LineChart";
 
 export {
   Header,
@@ -15,5 +16,6 @@ export {
   FormLogin,
   Products,
   Sales,
-  Debtor
+  Debtor,
+  LineChart,
 }
