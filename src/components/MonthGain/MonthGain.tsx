@@ -11,7 +11,7 @@ const MonthGain: React.FC<Props> = ({ gain }) => {
   return (
     <Box>
       <Card elevation={7} sx={{ p: '1rem' }}>
-        <Typography>Valor ganho:</Typography>
+        <Typography>Lucro Bruto:</Typography>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <KeyboardArrowUpIcon sx={{ color:'success.main' }} />
         <Typography variant='h5' color='success.main'>R$ {gain.replace('.', ',')}</Typography>
