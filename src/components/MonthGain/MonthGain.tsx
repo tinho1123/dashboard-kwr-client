@@ -9,7 +9,7 @@ interface Props {
 
 const MonthGain: React.FC<Props> = ({ gain }) => {
   return (
-    <Box>
+    <Box sx={{ m: '1rem', maxWidth: 'fit-content' }}>
       <Card elevation={7} sx={{ p: '1rem' }}>
         <Typography>Lucro Bruto:</Typography>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>

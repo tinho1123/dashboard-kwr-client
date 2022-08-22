@@ -9,6 +9,7 @@ import Debtor from './Debtor/Debtor'
 import LineChart from "./LineChart/LineChart";
 import MonthGain from "./MonthGain/MonthGain";
 import MonthLoss from "./MonthLoss/MonthLoss";
+import ClearAmount from "./ClearAmount/ClearAmount";
 
 export {
   Header,
@@ -21,5 +22,6 @@ export {
   Debtor,
   LineChart,
   MonthGain,
-  MonthLoss
+  MonthLoss,
+  ClearAmount
 }
