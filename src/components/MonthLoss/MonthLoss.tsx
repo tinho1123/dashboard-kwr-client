@@ -9,7 +9,7 @@ interface Props {
 
 const MonthLoss: React.FC<Props> = ({ loss }) => {
   return (
-    <Box>
+    <Box sx={{ m: '1rem', maxWidth: 'fit-content' }}>
     <Card elevation={7} sx={{ p: '1rem' }}>
       <Typography>Gastos:</Typography>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>

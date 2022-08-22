@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { useState } from "react";
-import { LineChart, MonthGain, MonthLoss } from "../";
+import { LineChart, MonthGain, MonthLoss, ClearAmount } from "../";
 
 
 const Home = () => {
@@ -24,15 +24,18 @@ const Home = () => {
     }
   ] 
   })
-  const reqGainTest = '200.00'
+  const reqGainTest = '1000.00'
   const reqLossTest = '200.00'
 
 
 
   return (
-    <Box sx={{ display: 'flex', gap: '1rem' }}>
+    <Box>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <MonthGain gain={reqGainTest}/>
         <MonthLoss loss={reqLossTest}/>
+        <ClearAmount gain={reqGainTest} loss={reqLossTest}/>
+      </Box>
         <LineChart chartData={userAgain} optionsData={optionsData} />
     </Box>
   )
